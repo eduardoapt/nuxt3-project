@@ -2,7 +2,7 @@
   <div>
     <div class="py-5 w-1/4 m-auto">
       Buscar nome
-      <UInput v-model="search" />
+      <UInput icon="i-icon-park-outline-search" v-model="search" />
     </div>
     <div class="mt-8 flex flex-row flex-wrap gap-6">
       <div
@@ -55,8 +55,8 @@ const usersFormatted = computed(() => {
   const newList = users.sort((a, b) => a.firstName.localeCompare(b.firstName))
   return newList.filter(
     (name) =>
-      name.firstName.includes(search.value) ||
-      name.lastName.includes(search.value)
+      name.firstName.toLowerCase().includes(search.value.toLowerCase()) ||
+      name.lastName.toLowerCase().includes(search.value.toLowerCase())
   )
 })
 </script>
